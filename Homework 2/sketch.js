@@ -1,9 +1,28 @@
 let x, y; // Position of both peas
 let xSpeed, ySpeed; // Speed of movement
-var myFont
+var zombie;
+var zombieX = 100;
+var zombieY = 150;
+var zombieSpeed = 5;
+var zombieObjects = 1;
+
+var font;
+var timertext = 0;
+var ellipse1;
+var spawnLineY=200;
+
 /*Jaelynn Young Running Crane
 Date 4.3.2024
 */
+
+function preload()
+{
+    zombie = loadImage("assets\png\female\Attack (1).png");
+    zombie = imageclass("assets\png\female\Attack (1).png",0,0);
+    zombieObjects(1) = zombie;
+    ellipseObject(2)=pea;
+
+}
 
 function setup() {
     createCanvas(400, 400);
@@ -13,11 +32,12 @@ function setup() {
     ySpeed = 1; // Initial y speed
 }
 function draw() {
-    background(150,21);//should leave a trail
+    background(150,21);//pea should leave a trail
 
     // Draw a pea at the current position
     fill(200,200,20); // pea color
     ellipse(x, y, 50, 45);
+    Ellipse1(x, y, 50, 45);
 
     // Update position based on speed
     x += xSpeed;
@@ -30,26 +50,31 @@ function draw() {
     if (y < 0 || y > height) {
         ySpeed *= -1; // Reverse y direction
     }
-
-      // Draw a peae at the current position
-    fill(200,200,20); // pea color
-    ellipse(x, y, 50, 45);
-
-    // Move the pea based on arrow keys
-    if (keyIsDown(LEFT_ARROW)) {
-        x -= 5; // Move left
+    //second pea
+    setInterval(spawnEllipse1,2000);
+    //zombie
+    image(zombie,zombieX,zombieY);
+    //zombie speed
+    zombieX += zombieSpeed;
+    if(zombieX >= width - zombie.width || zombieX  <= zombie.width/8)
+    {
+        zombieSpeed *= -1;
     }
-    if (keyIsDown(RIGHT_ARROW)) {
-        x += 5; // Move right
-    }
-    if (keyIsDown(UP_ARROW)) {
-        y -= 5; // Move up
-    }
-    if (keyIsDown(DOWN_ARROW)) {
-        y += 5; // Move down
-    }
-    textSize(25);
-    text("Jaelynn YRC",550,560);
-
+     //check for collsion
+    function checkCollisions(){
+        zombie=zombieObject(0);
+        ellipse=ellipseObject(1);
+        //check if zombie collides with peas
+        if (zombieX < ellipse
+            zombieX + zombieY> ellipse
+            zombieY < ellipse
+            zombieY + 150>ellipse1
+            ){
+            else
+                //pea should be eaten
+                ellipse isColliding = true;
+                Ellipse1 isColliding = true;
+            }
+   
 }
-
+}
