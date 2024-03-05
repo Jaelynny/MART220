@@ -1,0 +1,48 @@
+var zombie;
+var animation = [];
+var zombieObjects = [];
+
+
+
+function preload() {
+    //asset folder
+    zombie = new imageclass("assets\png\female\Idle (1).png", 0, 0);
+    zombieObjects[0] = zombie;
+    zombie = new imageclass('assets\png\female\Idle (2).png', 0, 0);
+    zombieObjects[1] = zombie;
+    zombie = new imageclass('assets\png\female\Idle (3).png', 0, 0);
+    zombieObjects[2] = zombie;
+    zombie = new imageclass('assets\png\female\Idle (4).png', 0, 0);
+    zombieObjects[3] = zombie;
+    zombie = new imageclass('assets\png\female\Idle (5).png', 0, 0);
+    zombieObjects[4] = zombie;
+    zombie = new imageclass('assets\png\female\Idle (6).png', 0, 0);
+    zombieObjects[5] = zombie;
+    zombie = new imageclass('assets\png\female\Idle (7).png', 0, 0);
+    zombieObjects[6] = zombie;
+    zombie = new imageclass('assets\png\female\Idle (8).png', 0, 0);
+    zombieObjects[7] = zombie;
+    zombie = new imageclass('assets\png\female\Idle (9).png', 0, 0);
+    zombieObjects[8] = zombie;
+    zombie = new imageclass('assets\png\female\Idle (10).png', 0, 0);
+    zombieObjects[9] = zombie;
+    //walk animation
+    zombie = new imageclass('assets\png\female\Walk (1).png', 0, 0);
+    zombieRunObjects[0] = zombie;
+    zombie = new imageclass('assets\png\female\Walk (2).png', 0, 0);
+    zombieRunObjects[1] = zombie;
+    zombie = new imageclass('assets\png\female\Walk (3).png', 0, 0);
+    zombieRunObjects[2] = zombie;
+    zombie = new imageclass('assets\png\female\Walk (4).png', 0, 0);
+    zombieRunObjects[3] = zombie;
+    zombie = new imageclass('assets\png\female\Walk (5).png', 0, 0);
+    zombieRunObjects[4] = zombie;
+    zombie = new imageclass('assets\png\female\Walk (6).png', 0, 0);
+    zombieRunObjects[5] = zombie;
+    zombie = new imageclass('assets\png\female\Walk (7).png', 0, 0);
+    zombieRunObjects[6] = zombie;
+    zombie = new imageclass('assets\png\female\Walk (8).png', 0, 0);
+    zombieRunObjects[7] = zombie;
+
+    }
+
