@@ -1,7 +1,8 @@
 let x, y; // Position of both peas
 let xSpeed, ySpeed; // Speed of movement
+var myFont
 /*Jaelynn Young Running Crane
-Date;12.2.2024
+Date 4.3.2024
 */
 
 function setup() {
@@ -47,6 +48,8 @@ function draw() {
     if (keyIsDown(DOWN_ARROW)) {
         y += 5; // Move down
     }
-    //bouncing peas
+    textSize(25);
+    text("Jaelynn YRC",550,560);
+
 }
 
