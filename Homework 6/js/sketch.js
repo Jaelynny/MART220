@@ -93,7 +93,7 @@ function draw()
             flipX = false;
         }
 
-        for (var ii = 0; ii < idleArray.length; ii++) {
+        for (var ii = 0; ii < idleArray.length; ii++) 
             idleArray[ii].updateX(xImage);
             idleArray[ii].updateFlip(flipX);
             walkArray[ii].updateX(xImage);
