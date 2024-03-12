@@ -1,5 +1,5 @@
-//this array hold my animation
-var xImage = 100, yImage = 25;
+
+var xImage = 100, yImage = 50;
 var myFont;
 var myTime = 10;
 var i = 0;
@@ -8,17 +8,17 @@ var idleStrings = [];
 var walkStrings = [];
 var idleArray = [];
 var walkArray = [];
-//this array holds my onjects
+
 var objectToEat;
 var objectToDraw;
-//arrays that hold my walk and idle text files
+
 function preload() {
-    idleStrings = loadStrings("../textfiles/idle.txt");
-    walkStrings = loadStrings("../textfiles/walk.txt");
+    idleStrings = loadStrings("..assets\Idle.txt");
+    walkStrings = loadStrings("..assets\walk.txt");
 }
 
 function setup() {
-    createCanvas(800, 800);
+    createCanvas(800, 750);
 
     for (let k = 0; k < idleStrings.length; k++) {
         idleArray.push(new myImage(idleStrings[k], 50, 300, 680, 472));
@@ -27,7 +27,7 @@ function setup() {
         walkArray.push(new myImage(walkStrings[k], 50, 300, 680, 472));
     }
 
-    objectToEat = new myImage("../images/bounce1.png", 500, 400, 100, 100);
+    objectToEat = new myImage("", 500, 400, 100, 100);
     myFont = loadFont("fonts/ProtestRiot-Regular.ttf");
 
     setInterval(changeTime, 100);
@@ -77,14 +77,6 @@ function draw() {
 
     objectToDraw[i].draw();
 
-    fill(100, 252, 169);
-    textSize(24);
-    textFont(myFont);
-    text("Hello and Yippee", 400, 300);
-
-    fill(36, 250, 100);
-    textSize(15);
-    text(myTime + " seconds", 50, 50);
 }
 
 function changeTime() {

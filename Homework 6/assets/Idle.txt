@@ -1,0 +1,37 @@
+var zombie;
+var animation = [];
+var zombieObjects = [];
+
+
+
+function preload() {
+    //asset folder
+    zombie = new imageclass("assets\png\male
+    \Idle (1).png", 0, 0);
+    zombieObjects[0] = zombie;
+    zombie = new imageclass('assets\png\male
+    \Idle (2).png', 0, 0);
+    zombieObjects[1] = zombie;
+    zombie = new imageclass('assets\png\male
+    \Idle (3).png', 0, 0);
+    zombieObjects[2] = zombie;
+    zombie = new imageclass('assets\png\male
+    \Idle (4).png', 0, 0);
+    zombieObjects[3] = zombie;
+    zombie = new imageclass('assets\png\male
+    \Idle (5).png', 0, 0);
+    zombieObjects[4] = zombie;
+    zombie = new imageclass('assets\png\male
+    \Idle (6).png', 0, 0);
+    zombieObjects[5] = zombie;
+    zombie = new imageclass('assets\png\male
+    \Idle (7).png', 0, 0);
+    zombieObjects[6] = zombie;
+    zombie = new imageclass('assets\png\male
+    \Idle (8).png', 0, 0);
+    zombieObjects[7] = zombie;
+    zombie = new imageclass('assets\png\male
+    \Idle (9).png', 0, 0);
+    zombieObjects[8] = zombie;
+    zombie = new imageclass('assets\png\male
+    \Idle (10).png', 0, 0);}
