@@ -8,6 +8,8 @@ var idleStrings = [];
 var walkStrings = [];
 var idleArray = [];
 var walkArray = [];
+let x, y; // Position of both peas
+let xSpeed, ySpeed; // Speed of movement
 
 var objectToEat;
 var objectToDraw;
@@ -19,6 +21,11 @@ function preload() {
 
 function setup() {
     createCanvas(800, 750);
+    x = width / 2; // Initial x position
+    y = height / 2; // Initial y position
+    xSpeed = 2; // Initial x speed
+    ySpeed = 1; // Initial y speed
+    
 
     for (let k = 0; k < idleStrings.length; k++) {
         idleArray.push(new myImage(idleStrings[k], 50, 300, 680, 472));
@@ -27,14 +34,32 @@ function setup() {
         walkArray.push(new myImage(walkStrings[k], 50, 300, 680, 472));
     }
 
-    objectToEat = new myImage("", 500, 400, 100, 100);
-    myFont = loadFont("fonts/ProtestRiot-Regular.ttf");
+    objectToEat = new myImage("assets\male\Attack (1).png", 500, 400, 100, 100);
+    myFont = loadFont("font\Anta,Playfair_Display\Playfair_Display");
 
     setInterval(changeTime, 100);
 }
-// this runs continuously
+
 function draw() {
-    background(120);
+    background(150,21);
+    // Draw a pea at the current position
+    fill(200,200,20); // pea color
+    ellipse(x, y, 50, 45);
+    Ellipse1(x, y, 80, 50);
+    //second pea
+    setInterval(spawnEllipse1,2000);
+
+    // Update position based on speed
+    x += xSpeed;
+    y += ySpeed;
+
+    // Bounce off canvas edges
+    if (x < 0 || x > width) {
+        xSpeed *= -1; // Reverse x direction
+    }
+    if (y < 0 || y > height) {
+        ySpeed *= -1; // Reverse y direction
+    }
 
     if (objectToEat != null) {
         objectToEat.draw();
