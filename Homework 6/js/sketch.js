@@ -117,11 +117,6 @@ function draw()
         {
         objectToDraw = walkArray;
     }
-    else {
-        objectToDraw = idleArray;     
-    }
-
-    objectToDraw[i].draw();
     
 
     function incrementIndex() 
