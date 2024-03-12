@@ -1,3 +1,7 @@
+var zombieObjectsl = [];
+var zombieRunObjects = [];
+var zombieRunLeftObjects = [];
+var currentObjects;
 
 var xImage = 100, yImage = 50;
 var myFont;
@@ -28,19 +32,19 @@ function setup() {
     
 
     for (let k = 0; k < idleStrings.length; k++) {
-        idleArray.push(new myImage(idleStrings[k], 50, 300, 680, 472));
+        idleArray.push(new myImage(idleStrings[k], 50, 300, 700, 572));
     }
     for (let k = 0; k < walkStrings.length; k++) {
-        walkArray.push(new myImage(walkStrings[k], 50, 300, 680, 472));
+        walkArray.push(new myImage(walkStrings[k], 50, 300, 700, 572));
     }
-
-    objectToEat = new myImage("assets\male\Attack (1).png", 500, 400, 100, 100);
+    objectToEat = ellipse
     myFont = loadFont("font\Anta,Playfair_Display\Playfair_Display");
-
+    currentObjects = zombieObjects;
     setInterval(changeTime, 100);
+    setInterval(countDown, 1000);
 }
 
-function draw() {
+function draw() 
     background(150,21);
     // Draw a pea at the current position
     fill(200,200,20); // pea color
@@ -63,9 +67,17 @@ function draw() {
 
     if (objectToEat != null) {
         objectToEat.draw();
+        fill(100, 300, 50);
+        textSize(24);
+        textFont(myFont);
+        text("Score " + score, 385, 60);
+    
+        fill(50, 100, 200);
+        textSize(25);
+        text(myTime + " second", 50, 50);
     }
 
-    if (keyIsPressed) {
+    if (keyIsPressed) 
         if (key == "w") {
             yImage -= 1;
         }
@@ -92,8 +104,17 @@ function draw() {
                     objectToEat = null;
                 }
             }
+            else 
+            {
+              if (myInterval == null) 
+              {
+                myInterval = setInterval(incrementIndex, 70);
+              }
+              currentObjects = zombieObjects;
+              currentAnimation = animation;
+            }
 
-        }
+        {
         objectToDraw = walkArray;
     }
     else {
@@ -101,12 +122,22 @@ function draw() {
     }
 
     objectToDraw[i].draw();
+    
 
-}
-
-function changeTime() {
-    i++;
-    if (i > idleArray.length - 1) {
-        i = 0;
+    function incrementIndex() 
+    {
+      counter += 1;
+      // if we reach the end of the array, start over
+      if (counter >= currentObjects.length) 
+      {
+        counter = 0;
+      }
+      function countDown() {
+        myTime--;
+        if (myTime < 0) 
+        {
+            myTime = 60;
+            createANewFoodItem();
+        }
     }
-}
+    }
