@@ -127,7 +127,7 @@ function draw()
     function incrementIndex() 
     {
       counter += 1;
-      // if we reach the end of the array, start over
+
       if (counter >= currentObjects.length) 
       {
         counter = 0;
