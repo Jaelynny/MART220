@@ -2,6 +2,8 @@ var zombieObjectsl = [];
 var zombieRunObjects = [];
 var zombieRunLeftObjects = [];
 var currentObjects;
+var counter = 0;
+var myInterval;
 
 var xImage = 100, yImage = 50;
 var myFont;
