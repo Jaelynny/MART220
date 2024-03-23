@@ -5,6 +5,11 @@ var currentObjects;
 var counter = 0;
 var myInterval;
 
+var isColliding = false;
+var objectToEat, objectToDraw;
+var backgroundSound;
+
+
 var scribble = new Scribble();
 
 var xImage = 100, yImage = 50;
@@ -21,10 +26,17 @@ let xSpeed, ySpeed; // Speed of movement
 
 var objectToEat;
 var objectToDraw;
+var mySound;
+var scribbleEllipse=[];
 
 function preload() {
     idleStrings = loadStrings("..assets\Idle.txt");
     walkStrings = loadStrings("..assets\walk.txt");
+    soundFormats('mp3', 'ogg');
+  mySound = loadSound('assets\eating-sound-effect.mp3');//good food
+  mySound2=loadSound("assets\gagging.mp3");//bad food
+  backgroundSound=loadSound("assets\music box.mp3");
+
 }
 
 function setup() {
@@ -56,8 +68,7 @@ function draw()
     Ellipse1(x, y, 80, 50);
     //second pea
     setInterval(spawnEllipse1,2000);
-    //outside library code
-
+    displayHUD();
 
     // Update position based on speed
     x += xSpeed;
@@ -73,19 +84,13 @@ function draw()
 
     if (objectToEat != null) {
         objectToEat.draw();
-        fill(100, 300, 50);
-        textSize(24);
-        textFont(myFont);
-        text("Score " + score, 385, 60);
-    
-        fill(50, 100, 200);
-        textSize(25);
-        text(myTime + " second", 50, 50);
+
     }
 
     if (keyIsPressed) 
         if (key == "w") {
             yImage -= 1;
+            isColliding =myWalkArray.isEllipseColliding(Ellipse1)
         }
         if (key == "s") {
             yImage += 1;
@@ -108,6 +113,7 @@ function draw()
             if (objectToEat != null) {
                 if (walkArray[ii].checkCollision(objectToEat.x, objectToEat.y, objectToEat.w, objectToEat.h)) {
                     objectToEat = null;
+                    load
                 }
             }
             else 
@@ -119,16 +125,27 @@ function draw()
               currentObjects = zombieObjects;
               currentAnimation = animation;
             }
+            function displayHUD() 
+                fill(100, 252, 169);
+                textSize(24);
+                textFont(myFont);
+                text("Score:" + score, 600, 50);
+            
+                text("Countdown:" + countDown, 300, 50);
+            
+                text("Yum " + myTime + " secs", 50, 50);
 
         {
+            //outside library code
         objectToDraw = walkArray;
         scribble.scribbleEllipse( x, y, w, h );
         scribble.numEllipseSteps = yourValue; // defines how much curves will be used to draw an ellipse
         randomSeed( yourSeed );
-
+    }
+    function mousePressed() {
+        backgroundSound.loop();
     }
     
-
     function incrementIndex() 
     {
       counter += 1;
@@ -142,7 +159,7 @@ function draw()
         if (myTime < 0) 
         {
             myTime = 60;
-            createANewFoodItem();
+            createANewFoodItem(ellipse);
         }
     }
     }
